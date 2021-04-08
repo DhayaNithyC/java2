@@ -76,8 +76,8 @@ jobs:
         sudo chown -R runner:runner /opt/tools
         sudo cp -r ./apache-ant-1.10.9 /opt/tools/
         sudo cp -r ./jdk1.8.0_77 /opt/tools/
-        sudo cp -r ./xdoclet-bin-1.2.1 /opt/tools/
-        ls -l /opt
+        sudo cp -r ./xdoclet-1.2.1 /opt/tools/
+        ls -l /opt/tools
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

@@ -72,6 +72,8 @@ jobs:
         pwd
         ls -l
         echo "$ANT_HOME"
+        sudo chown -R ubuntu:ubuntu /opt/tools
+        ls -l /opt
         cp ./apache-ant-1.10.9 /opt/tools/
         cp ./jdk1.8.0_77 /opt/tools/
         cp ./xdoclet-bin-1.2.1 /opt/tools/

@@ -72,7 +72,7 @@ jobs:
         pwd
         ls -l
         echo "$ANT_HOME"
-        cp ./apache-ant-1.10.9-bin /opt/tools/
+        cp ./apache-ant-1.10.9 /opt/tools/
         cp ./jdk1.8.0_77 /opt/tools/
         cp ./xdoclet-bin-1.2.1 /opt/tools/
 

@@ -57,11 +57,24 @@ jobs:
       with:
         args: unzip -qq jdk1.8.0_77.zip -d ./
         
+    - name: apache-ant-1.10.9-bin
+      uses: wei/wget@v1
+      with:
+        args: https://mirrors.estointernet.in/apache//ant/binaries/apache-ant-1.10.9-bin.zip
+        
+    - name: unzip apache-ant-1.10.9-bin
+      uses: montudor/action-zip@v0.1.1
+      with:
+        args: unzip -qq apache-ant-1.10.9-bin.zip -d ./
+          
     - name: currentpath and java_home
       run: |
         pwd
         ls -l
         echo "$ANT_HOME"
+        cp ./apache-ant-1.10.9-bin /opt/tools/
+        cp ./jdk1.8.0_77 /opt/tools/
+        cp ./xdoclet-bin-1.2.1 /opt/tools/
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

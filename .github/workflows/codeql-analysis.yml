@@ -9,16 +9,16 @@
 # the `language` matrix defined below to confirm you have the correct set of
 # supported CodeQL languages.
 #
-name: "dino"
+name: "codeQL"
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ master ]
+    branches: [ develop ]
   schedule:
-    - cron: '30 7 * * 6'
+    - cron: '24 3 * * 3'
 
 jobs:
   analyze:
@@ -79,6 +79,11 @@ jobs:
         sudo find . -name "*.java" -exec iconv -f WINDOWS-1252 -t UTF-8 {} -o {}.ren \; -a -exec mv {}.ren {} \;
         dos2unix ./SN/build/build.sh;
         chmod u+x ./SN/build/build.sh
+        tar zxvf ./jdk-8u77-linux-x64.tar.gz
+        sudo cp -r ./jdk1.8.0_77 /opt/tools/
+        sudo update-alternatives --install /usr/bin/javac javac /opt/tools/jdk1.8.0_77/bin/javac
+        sudo update-alternatives --install /usr/bin/javac java /opt/tools/jdk1.8.0_77/bin/java
+        sudo update-alternatives --set java /opt/tools/jdk1.8.0_77/bin/java
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
@@ -103,7 +108,7 @@ jobs:
     #    uses a compiled language
     - name: manual build steps
       run: |
-        /SN/build/build.sh \
+        ./SN/build/build.sh \
                   file_name=build.xml auto=yes target=buildDeploy \
                   JAVA_HOME=/opt/tools/jdk1.8.0_77 \
                   ANT_HOME=/opt/tools/apache-ant-1.10.9 \

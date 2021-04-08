@@ -71,7 +71,7 @@ jobs:
       run: |
         pwd
         ls -l
-        apt install dos2unix -y
+        sudo apt install dos2unix -y
         mkdir -p /opt/tools
         sudo chown -R runner:runner /opt/tools
         cp ./apache-ant-1.10.9 /opt/tools/

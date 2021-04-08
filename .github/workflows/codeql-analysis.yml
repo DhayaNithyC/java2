@@ -37,12 +37,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
     
-    - name: Setup Java JDK
-      #uses: actions/checkout@v1
-      uses: AdoptOpenJDK/install-jdk@v1
-      with:
-        version: '1.8'
-    
     - name: xdoclet-bin-1.2.1
       uses: wei/wget@v1
       with:
@@ -65,8 +59,6 @@ jobs:
           
     - name: Build dependencies
       run: |
-        echo "$JAVA_HOME"
-        sudo update-alternatives -l
         sudo apt install dos2unix -y
         mkdir -p /opt/tools
         sudo chown -R runner:runner /opt/tools
@@ -77,8 +69,7 @@ jobs:
         sudo find . -name "*.java" -exec iconv -f WINDOWS-1252 -t UTF-8 {} -o {}.ren \; -a -exec mv {}.ren {} \;
         dos2unix ./SN/build/build.sh;
         chmod u+x ./SN/build/build.sh
-        tar zxvf ./jdk-8u77-linux-x64.tar.gz
-        sudo cp -r ./jdk1.8.0_77 /opt/tools/
+        sudo cp -r ./SN/SNETBuild/jdk1.8.0_77 /opt/tools/
         sudo update-alternatives --install /usr/bin/javac javac /opt/tools/jdk1.8.0_77/bin/javac
         sudo update-alternatives --install /usr/bin/javac java /opt/tools/jdk1.8.0_77/bin/java
         sudo update-alternatives --set java /opt/tools/jdk1.8.0_77/bin/java

@@ -37,7 +37,7 @@ jobs:
     - name: wget command
       uses: wei/wget@v1
       with:
-        args: -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip/download
+        args: https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip/download
     
     - name: report file info
       run: |

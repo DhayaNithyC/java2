@@ -24,6 +24,11 @@ jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
+    steps:  
+    - name: wget command
+      uses: wei/wget@v1
+      with:
+        args: -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip/download
 
     strategy:
       fail-fast: false
@@ -34,13 +39,6 @@ jobs:
         # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
 
     steps:
-    - name: pwd command
-    - run : pwd
-    
-    - name: wget command
-      uses: wei/wget@v1
-      with:
-        args: -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip/download
     - name: Checkout repository
       uses: actions/checkout@v2
 

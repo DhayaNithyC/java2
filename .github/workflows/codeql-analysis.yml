@@ -42,7 +42,7 @@ jobs:
       with:
         # The Java version to make available on the path. Takes a whole or semver Java version, or 1.x syntax (e.g. 1.8 => Java 8.x). Early access versions can be specified in the form of e.g. 14-ea, 14.0.0-ea, or 14.0.0-ea.28
         java-version: 1.8
-      
+    
     - name: xdoclet-bin-1.2.1
       uses: wei/wget@v1
       with:
@@ -52,17 +52,7 @@ jobs:
       uses: montudor/action-zip@v0.1.1
       with:
         args: unzip -qq xdoclet-bin-1.2.1.zip -d ./
-      
-    - name: Java jdk 1.8.0_77
-      uses: wei/wget@v1
-      with:
-        args: https://downloads.ensemblevideo.com/Temp/Java/jdk1.8.0_77.zip
-        
-    - name: unzip Java jdk 1.8.0_77
-      uses: montudor/action-zip@v0.1.1
-      with:
-        args: unzip -qq jdk1.8.0_77.zip -d ./
-        
+             
     - name: apache-ant-1.10.9-bin
       uses: wei/wget@v1
       with:

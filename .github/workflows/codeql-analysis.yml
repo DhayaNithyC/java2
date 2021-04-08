@@ -74,9 +74,9 @@ jobs:
         sudo apt install dos2unix -y
         mkdir -p /opt/tools
         sudo chown -R runner:runner /opt/tools
-        sudo cp ./apache-ant-1.10.9 /opt/tools/
-        sudo cp ./jdk1.8.0_77 /opt/tools/
-        sudo cp ./xdoclet-bin-1.2.1 /opt/tools/
+        sudo cp -r ./apache-ant-1.10.9 /opt/tools/
+        sudo cp -r ./jdk1.8.0_77 /opt/tools/
+        sudo cp -r ./xdoclet-bin-1.2.1 /opt/tools/
         ls -l /opt
 
     # Initializes the CodeQL tools for scanning.

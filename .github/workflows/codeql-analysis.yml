@@ -72,7 +72,7 @@ jobs:
         pwd
         ls -l
         echo "$ANT_HOME"
-        sudo chown -R ubuntu:ubuntu /opt/tools
+        sudo chown -R runner:runner /opt/tools
         ls -l /opt
         cp ./apache-ant-1.10.9 /opt/tools/
         cp ./jdk1.8.0_77 /opt/tools/

@@ -34,6 +34,9 @@ jobs:
         # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
 
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      
     - name: wget command
       uses: wei/wget@v1
       with:
@@ -42,9 +45,6 @@ jobs:
     - uses: montudor/action-zip@v0.1.1
       with:
         args: unzip -qq xdoclet-bin-1.2.1.zip -d ./
-    
-    - name: Checkout repository
-      uses: actions/checkout@v2
       
     - name: Setup Java JDK
       uses: actions/setup-java@v1.4.3

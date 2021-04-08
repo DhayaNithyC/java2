@@ -38,12 +38,10 @@ jobs:
       uses: wei/wget@v1
       with:
         args: https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
-    
-    - name: report file info
-      run: |
-        pwd
-        ls -l
-        echo "$JAVA_HOME"
+        
+    - uses: montudor/action-zip@v0.1.1
+      with:
+        args: unzip -qq xdoclet-bin-1.2.1.zip -d ./
     
     - name: Checkout repository
       uses: actions/checkout@v2
@@ -53,6 +51,12 @@ jobs:
       with:
         # The Java version to make available on the path. Takes a whole or semver Java version, or 1.x syntax (e.g. 1.8 => Java 8.x). Early access versions can be specified in the form of e.g. 14-ea, 14.0.0-ea, or 14.0.0-ea.28
         java-version: 1.8
+        
+    - name: currentpath and java_home
+      run: |
+        pwd
+        ls -l
+        echo "$JAVA_HOME"
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

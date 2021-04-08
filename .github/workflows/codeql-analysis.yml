@@ -61,6 +61,7 @@ jobs:
       run: |
         pwd
         ls -l
+        echo "$ANT_HOME"
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

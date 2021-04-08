@@ -65,6 +65,8 @@ jobs:
           
     - name: Build dependencies
       run: |
+        echo "$JAVA_HOME"
+        sudo update-alternatives -l
         sudo apt install dos2unix -y
         mkdir -p /opt/tools
         sudo chown -R runner:runner /opt/tools

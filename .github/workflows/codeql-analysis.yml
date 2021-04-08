@@ -67,10 +67,8 @@ jobs:
       with:
         args: unzip -qq apache-ant-1.10.9-bin.zip -d ./
           
-    - name: currentpath and java_home
+    - name: Build dependencies
       run: |
-        pwd
-        ls -l
         sudo apt install dos2unix -y
         mkdir -p /opt/tools
         sudo chown -R runner:runner /opt/tools
@@ -78,6 +76,9 @@ jobs:
         sudo cp -r ./jdk1.8.0_77 /opt/tools/
         sudo cp -r ./xdoclet-1.2.1 /opt/tools/
         ls -l /opt/tools
+        sudo find . -name "*.java" -exec iconv -f WINDOWS-1252 -t UTF-8 {} -o {}.ren \; -a -exec mv {}.ren {} \;
+        dos2unix ./SN/build/build.sh;
+        chmod u+x ./SN/build/build.sh
 
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
@@ -91,8 +92,8 @@ jobs:
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
+    #- name: Autobuild
+    # uses: github/codeql-action/autobuild@v1
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 https://git.io/JvXDl
@@ -100,8 +101,14 @@ jobs:
     # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
-
-    #- run: |
+    - name: manual build steps
+      run: |
+        /SN/build/build.sh \
+                  file_name=build.xml auto=yes target=buildDeploy \
+                  JAVA_HOME=/opt/tools/jdk1.8.0_77 \
+                  ANT_HOME=/opt/tools/apache-ant-1.10.9 \
+                  XDOCLET_HOME=/opt/tools/xdoclet-1.2.1
+        
     #   make bootstrap
     #   make release
 

@@ -55,8 +55,11 @@ jobs:
       shell: cmd
       
     - name: cd
-      run: cmd /c setant.cmd
-             
+      run: |
+        setant.cmd
+        set PATH=D:\java\jdk1.8.0_77\bin;%PATH%
+      shell: cmd
+      
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1

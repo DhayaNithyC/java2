@@ -56,7 +56,14 @@ jobs:
       
     - name: cd
       run: |
-        setant.cmd
+        set JAVA_HOME=D:\java\jdk1.8.0_77
+        set ANT_OPTS=-Xmx1536m
+        set XDOCLET_HOME=D:\xdoclet-1.2.1
+        setWLSEnv.cmd
+        codequality.cmd
+        set classpath=%classpath%;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;
+        set ANT_HOME=..\SNETBuild\ant
+        set PATH=..\SNETBuild\ant\bin;C:\Windows\System32;%PATH%
         set PATH=D:\java\jdk1.8.0_77\bin;%PATH%
       shell: cmd
       

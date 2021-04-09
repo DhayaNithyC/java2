@@ -52,9 +52,13 @@ jobs:
         mkdir D:\java\
         cp -r .\jdk1.8.0_77  D:\java\
         cp -r .\xdoclet-1.2.1 D:\
-        cd ..\jdk1.8.0_77\bin
+        cd .\jdk1.8.0_77\bin
         dir
       shell: cmd
+      
+    - name: cd
+      working-directory: .\jdk1.8.0_77\bin
+      run: dir
              
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

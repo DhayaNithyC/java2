@@ -52,11 +52,8 @@ jobs:
         mkdir D:\java\
         cp -r .\jdk1.8.0_77  D:\java\
         cp -r .\xdoclet-1.2.1 D:\
+        cd ..\jdk1.8.0_77\bin
         dir
-        dir D:\
-        dir D:\java\
-        dir D:\java\jdk1.8.0_77\
-        dir D:\xdoclet-1.2.1
       shell: cmd
              
     # Initializes the CodeQL tools for scanning.
@@ -81,7 +78,10 @@ jobs:
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
 
-    #- run: |
+    #-  name: custom build 
+     #  run: |
+     #     ant -f build.xml buildDeploy
+     #  shell: cmd
     #   make bootstrap
     #   make release
 

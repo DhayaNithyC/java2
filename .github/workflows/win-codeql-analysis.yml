@@ -51,10 +51,12 @@ jobs:
         7z x xdoclet-bin-1.2.1.zip
         mkdir D:\java\
         cp -r .\jdk1.8.0_77  D:\java\
-        cp -r .\xdoclet-1.2.1 xdoclet-1.2.1D:\
+        cp -r .\xdoclet-1.2.1 D:\
         dir
         dir D:\
         dir D:\java\
+        dir D:\java\jdk1.8.0_77\
+        dir D:\xdoclet-1.2.1
       shell: cmd
              
     # Initializes the CodeQL tools for scanning.

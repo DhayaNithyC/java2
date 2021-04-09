@@ -8,16 +8,6 @@
 
     <property name="main-class"  value="oata.HelloWorld"/>
 
-   	<target name="validate_wl_and_java" depends="init" if="do_validation" description="Validates the Weblogic Version and JDK version">
-		<tstamp><format property="temp_time" pattern="yyMMddHHmmss"/></tstamp>
-		<condition property="java_version_is_valid">
-			<matches string="${java.runtime.version}" pattern="^${java_runtime_version_expected}$" casesensitive="true" multiline="true"/>
-		</condition>
-		<echo message="JAVA VERSION expected=${java_runtime_version_expected}  and  actual=${java.runtime.version}"/>
-		<echo message="JAVA VERSION validity = ${java_version_is_valid}"/>
-		<fail unless="java_version_is_valid" message="Requires java runtime version: ${java_runtime_version_expected}"/>
-	</target>
-
     <target name="clean">
         <delete dir="${build.dir}"/>
     </target>

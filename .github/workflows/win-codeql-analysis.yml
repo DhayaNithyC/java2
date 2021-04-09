@@ -41,7 +41,9 @@ jobs:
       run: |
          dir
     - name: xdoclet
-      run: curl -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
+      run: |
+        curl -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
+        jar -xf xdoclet-bin-1.2.1.zip
         
     - name: unzip xdoclet-bin-1.2.1
       run: |

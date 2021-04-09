@@ -42,8 +42,8 @@ jobs:
          dir
     - name: xdoclet
       run: |
-        pip install https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
-        #Expand-Archive D:\a\java2\java2\xdoclet-bin-1.2.1.zip -DestinationPath D:\
+        pip3 install https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip -U
+        Expand-Archive D:\a\java2\java2\xdoclet-bin-1.2.1.zip -DestinationPath D:\
         dir 
         dir D:\
              

@@ -41,9 +41,9 @@ jobs:
       run: |
          dir
     - name: xdoclet
-      uses: wei/wget@v1
+      uses: wei/curl@v1
       with:
-        args: https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
+        args: -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
         
     - name: unzip xdoclet-bin-1.2.1
       uses: montudor/action-zip@v0.1.1

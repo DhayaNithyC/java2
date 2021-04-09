@@ -43,10 +43,12 @@ jobs:
     - name: xdoclet,java,ant
       run: |
         curl -O https://eternallybored.org/misc/wget/1.20/32/wget.exe
-        wget https://downloads.ensemblevideo.com/Temp/Java/jdk1.8.0_77.zip
-        wget https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
+        dir 
+        #wget https://downloads.ensemblevideo.com/Temp/Java/jdk1.8.0_77.zip
+        wget.exe https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
         wget https://mirrors.estointernet.in/apache//ant/binaries/apache-ant-1.10.9-bin.zip
         dir 
+      shell: cmd
              
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

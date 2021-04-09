@@ -48,7 +48,8 @@ jobs:
         dir D:\
         
     - name: Extract some files
-      run: 7z xdoclet-bin-1.2.1.zip
+      run: |
+           7z x xdoclet-bin-1.2.1.zip
            dir 
            dir D:\
              

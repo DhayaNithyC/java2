@@ -43,10 +43,10 @@ jobs:
     - name: xdoclet
       run: |
         curl -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
-        7z x xdoclet-bin-1.2.1.zip
-        dir
-      shell: cmd
-       
+        Expand-Archive D:\a\java2\java2\xdoclet-bin-1.2.1.zip -DestinationPath D:\
+        dir 
+        dir D:\
+             
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1

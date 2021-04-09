@@ -51,6 +51,7 @@ jobs:
         7z x jdk1.8.0_77.zip
         7z x xdoclet-bin-1.2.1.zip
         7z x apache-ant-1.10.9-bin.zip
+        dir
       shell: cmd
              
     # Initializes the CodeQL tools for scanning.

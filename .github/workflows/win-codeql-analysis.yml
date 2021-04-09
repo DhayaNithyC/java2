@@ -59,12 +59,12 @@ jobs:
         set JAVA_HOME=D:\java\jdk1.8.0_77
         set ANT_OPTS=-Xmx1536m
         set XDOCLET_HOME=D:\xdoclet-1.2.1
-        setWLSEnv.cmd
-        codequality.cmd
         set classpath=%classpath%;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;
-        set ANT_HOME=..\SNETBuild\ant
+        set ANT_HOME=..\SNETBuild\antCLASSPATH=;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;;..\iText\Application\lib\checkstyle\checkstyle-5.5.jar;..\iText\Application\lib\checkstyle\google-collections-1.0.jar;..\iText\Application\lib\checkstyle\commons-beanutils-core-1.8.3.jar;..\iText\Application\lib\checkstyle\antlr-2.7.7.jar;..\iText\Application\lib\checkstyle\commons-logging.jar;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;
+        set CLASSPATH=;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;;..\iText\Application\lib\checkstyle\checkstyle-5.5.jar;..\iText\Application\lib\checkstyle\google-collections-1.0.jar;..\iText\Application\lib\checkstyle\commons-beanutils-core-1.8.3.jar;..\iText\Application\lib\checkstyle\antlr-2.7.7.jar;..\iText\Application\lib\checkstyle\commons-logging.jar;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;
         set PATH=..\SNETBuild\ant\bin;C:\Windows\System32;%PATH%
         set PATH=D:\java\jdk1.8.0_77\bin;%PATH%
+        java -version
       shell: cmd
       
     # Initializes the CodeQL tools for scanning.

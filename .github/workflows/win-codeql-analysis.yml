@@ -55,7 +55,7 @@ jobs:
       shell: cmd
       
     - name: cd
-      run: setant.cmd
+      run: cmd /c setant.cmd
              
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

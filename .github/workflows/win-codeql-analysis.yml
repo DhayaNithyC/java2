@@ -42,16 +42,10 @@ jobs:
          dir
     - name: xdoclet
       run: |
-        curl -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
+        pip install https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
         #Expand-Archive D:\a\java2\java2\xdoclet-bin-1.2.1.zip -DestinationPath D:\
         dir 
         dir D:\
-        
-    - name: Extract some files
-      run: |
-           7z x xdoclet-bin-1.2.1.zip
-           dir 
-           dir D:\
              
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

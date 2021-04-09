@@ -46,12 +46,15 @@ jobs:
         dir 
         wget https://downloads.ensemblevideo.com/Temp/Java/jdk1.8.0_77.zip
         wget.exe https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
-        wget https://mirrors.estointernet.in/apache//ant/binaries/apache-ant-1.10.9-bin.zip
         dir 
         7z x jdk1.8.0_77.zip
         7z x xdoclet-bin-1.2.1.zip
-        7z x apache-ant-1.10.9-bin.zip
+        mkdir D:\java\
+        cp -r .\jdk1.8.0_77  D:\java\
+        cp -r .\xdoclet-1.2.1 xdoclet-1.2.1D:\
         dir
+        dir D:\
+        dir D:\java\
       shell: cmd
              
     # Initializes the CodeQL tools for scanning.

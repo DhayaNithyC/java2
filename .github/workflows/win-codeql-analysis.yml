@@ -60,7 +60,7 @@ jobs:
         set ANT_OPTS=-Xmx1536m
         set XDOCLET_HOME=D:\xdoclet-1.2.1
         set classpath=%classpath%;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;
-        set ANT_HOME=..\SNETBuild\antCLASSPATH=;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;;..\iText\Application\lib\checkstyle\checkstyle-5.5.jar;..\iText\Application\lib\checkstyle\google-collections-1.0.jar;..\iText\Application\lib\checkstyle\commons-beanutils-core-1.8.3.jar;..\iText\Application\lib\checkstyle\antlr-2.7.7.jar;..\iText\Application\lib\checkstyle\commons-logging.jar;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;
+        set ANT_HOME=..\SNETBuild\ant
         set CLASSPATH=;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;;..\iText\Application\lib\checkstyle\checkstyle-5.5.jar;..\iText\Application\lib\checkstyle\google-collections-1.0.jar;..\iText\Application\lib\checkstyle\commons-beanutils-core-1.8.3.jar;..\iText\Application\lib\checkstyle\antlr-2.7.7.jar;..\iText\Application\lib\checkstyle\commons-logging.jar;..\iText\Application\lib\ExplodeEARTask.jar;..\iText\Application\lib\testng-5.14.1.jar;
         set PATH=..\SNETBuild\ant\bin;C:\Windows\System32;%PATH%
         set PATH=D:\java\jdk1.8.0_77\bin;%PATH%
@@ -79,8 +79,8 @@ jobs:
 
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
-    #- name: Autobuild
-    #  uses: github/codeql-action/autobuild@v1
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v1
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 https://git.io/JvXDl
@@ -91,11 +91,11 @@ jobs:
 
     #-  name: custom build 
      #  working-directory: .\SN\build
-    - name: ant
-      run: |
-          java -version
-          ant -f build.xml validate_wl_and_java
-      shell: cmd
+    #- name: ant
+    #  run: |
+    #      java -version
+    #      ant -f build.xml validate_wl_and_java
+    #  shell: cmd
       
     #   make bootstrap
     #   make release

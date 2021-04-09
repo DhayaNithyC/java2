@@ -13,10 +13,10 @@ name: "codeQL"
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ master ]
   pull_request:
     # The branches below must be a subset of the branches above
-    branches: [ develop ]
+    branches: [ master ]
   schedule:
     - cron: '24 3 * * 3'
 
@@ -36,21 +36,20 @@ jobs:
     steps:  
     - name: Checkout repository
       uses: actions/checkout@v2
-    
-    - name: xdoclet-bin-1.2.1
-      uses: wei/wget@v1
+      
+    - name: Checkout tools repo
+      uses: actions/checkout@v2
       with:
-        args: https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
-        
+         repository: DhayaNithyC/Packages
+    
+    - name: list
+      run: | 
+         ls -l
+         
     - name: unzip xdoclet-bin-1.2.1
       uses: montudor/action-zip@v0.1.1
       with:
         args: unzip -qq xdoclet-bin-1.2.1.zip -d ./
-             
-    - name: apache-ant-1.10.9-bin
-      uses: wei/wget@v1
-      with:
-        args: https://mirrors.estointernet.in/apache//ant/binaries/apache-ant-1.10.9-bin.zip
         
     - name: unzip apache-ant-1.10.9-bin
       uses: montudor/action-zip@v0.1.1
@@ -60,16 +59,16 @@ jobs:
     - name: Build dependencies
       run: |
         sudo apt install dos2unix -y
+        tar -zxvf jdk-8u77-linux-x64.tar.gz
         mkdir -p /opt/tools
         sudo chown -R runner:runner /opt/tools
         sudo cp -r ./apache-ant-1.10.9 /opt/tools/
-        sudo cp -r ./jdk1.8.0_77 /opt/tools/
+        sudo cp -r ./SN/SNETBuild/jdk1.8.0_77 /opt/tools/
         sudo cp -r ./xdoclet-1.2.1 /opt/tools/
         ls -l /opt/tools
         sudo find . -name "*.java" -exec iconv -f WINDOWS-1252 -t UTF-8 {} -o {}.ren \; -a -exec mv {}.ren {} \;
         dos2unix ./SN/build/build.sh;
         chmod u+x ./SN/build/build.sh
-        sudo cp -r ./SN/SNETBuild/jdk1.8.0_77 /opt/tools/
         sudo update-alternatives --install /usr/bin/javac javac /opt/tools/jdk1.8.0_77/bin/javac
         sudo update-alternatives --install /usr/bin/javac java /opt/tools/jdk1.8.0_77/bin/java
         sudo update-alternatives --set java /opt/tools/jdk1.8.0_77/bin/java

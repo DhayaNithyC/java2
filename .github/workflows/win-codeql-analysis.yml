@@ -43,9 +43,9 @@ jobs:
     - name: xdoclet
       run: |
         curl -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
-        choco install 7zip.install
         7z x xdoclet-bin-1.2.1.zip
         dir
+      shell: cmd
        
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL

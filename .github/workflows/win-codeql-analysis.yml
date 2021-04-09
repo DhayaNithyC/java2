@@ -44,9 +44,9 @@ jobs:
       run: curl -O https://sourceforge.net/projects/xdoclet/files/xdoclet/1.2.1/xdoclet-bin-1.2.1.zip
         
     - name: unzip xdoclet-bin-1.2.1
-      uses: montudor/action-zip@v0.1.1
-      with:
-        args: unzip -qq xdoclet-bin-1.2.1.zip -d ./
+      run: |
+        Expand-Archive -Path xdoclet-bin-1.2.1.zip -DestinationPath D:\
+        dir D:\
        
 
     # Initializes the CodeQL tools for scanning.

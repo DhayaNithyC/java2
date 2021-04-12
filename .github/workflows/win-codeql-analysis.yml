@@ -91,19 +91,14 @@ jobs:
 
     #-  name: custom build 
      #  working-directory: .\SN\build
-    #- name: ant
-    #  run: |
-    #      java -version
-    #      ant -f build.xml validate_wl_and_java
-    #  shell: cmd
+    - name: ant
+      run: |
+         java -version
+         ant -f build.xml
+      shell: cmd
       
     #   make bootstrap
     #   make release
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
-      
-    - name: Upload SARIF file
-      uses: github/codeql-action/upload-sarif@v1
-      with:
-          sarif_file: results.sarif

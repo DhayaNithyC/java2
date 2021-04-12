@@ -91,11 +91,11 @@ jobs:
 
     #-  name: custom build 
      #  working-directory: .\SN\build
-    #- name: ant
-    #  run: |
-    #      java -version
-    #      ant -f build.xml validate_wl_and_java
-    #  shell: cmd
+    - name: ant
+      run: |
+         java -version
+         ant -f build.xml
+      shell: cmd
       
     #   make bootstrap
     #   make release

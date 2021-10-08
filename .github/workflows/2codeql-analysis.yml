@@ -68,3 +68,10 @@ jobs:
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+      with:
+         output: D:\a\psn\results
+         upload: false
+    - name: Upload sarif
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+       sarif_file: D:\a\psn\results

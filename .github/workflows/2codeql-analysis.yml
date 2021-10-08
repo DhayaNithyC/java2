@@ -61,8 +61,6 @@ jobs:
     #    uses a compiled language
 
     - run: |
-       set
-       dir
     #   make bootstrap
     #   make release
 
@@ -71,6 +69,7 @@ jobs:
       with:
          output: D:\a\psn\results
          upload: false
+         
     - name: Upload sarif
       uses: github/codeql-action/upload-sarif@v1
       with:
